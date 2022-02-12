@@ -45,12 +45,12 @@ const foo = (color) => {
 }
 
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
-foo(colors[Math.floor(Math.random() * colors.length)])
+foo(colors[Math.floor(Math.random() * (colors.length + 1))])
 
 const render = async () => {
   for (let line of lines) {
     scene.add(line)
-    await wait(0)
+    await wait(100)
   }
   if (scene.children.length >= 749) {
     for (let line of lines) {
@@ -58,7 +58,7 @@ const render = async () => {
     }
     lines.length = 0
     await wait(10)
-    foo(colors[Math.floor(Math.random() * colors.length)])
+    foo(colors[Math.floor(Math.random() * (colors.length + 1))])
   }
 }
 
