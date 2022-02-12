@@ -23,11 +23,10 @@ scene.backgroundColor = new THREE.Color(0x000000)
 const lines = []
 
 const foo = () => {
-  for (let i = 1; i < 720; i++) {
+  for (let i = 1; i < 2550; i++) {
     const points = []
     const material = new THREE.LineBasicMaterial({
       color: new THREE.Color('rgb(204, 61, 185)'),
-      linewidth: 3,
     })
     points.push(new THREE.Vector2(0, 0))
     points.push(new THREE.Vector2(xt(i), yt(i)))
@@ -45,7 +44,6 @@ const render = async () => {
     scene.add(line)
     await wait(25)
   }
-  
 }
 
 function animate() {
