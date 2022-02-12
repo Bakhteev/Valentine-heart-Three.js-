@@ -9,6 +9,7 @@ const colors = [
   'rgb(242, 48, 65)',
   'rgb(242, 232, 48)',
   'rgb(48, 242, 174)',
+  'rgb(242, 48, 203)',
 ]
 
 const renderer = new THREE.WebGLRenderer()
