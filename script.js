@@ -50,14 +50,14 @@ foo(colors[Math.floor(Math.random() * (colors.length + 1))])
 const render = async () => {
   for (let line of lines) {
     scene.add(line)
-    await wait(50)
+    await wait(20)
   }
   if (scene.children.length >= 749) {
     for (let line of lines) {
       scene.remove(line)
     }
     lines.length = 0
-    await wait(10)
+    await wait(20)
     foo(colors[Math.floor(Math.random() * (colors.length + 1))])
   }
 }
