@@ -5,12 +5,8 @@ const yt = (t) =>
   13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)
 
 const renderer = new THREE.WebGLRenderer()
-renderer.setSize(window.innerWidth, window.innerHeight * 0.9)
+renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
-
-// window.addEventListener('resize', () => {
-//   renderer.setSize(window.innerWidth, window.innerHeight * 0.8)
-// })
 
 const camera = new THREE.PerspectiveCamera(
   45,
@@ -41,19 +37,20 @@ const foo = () => {
   }
 }
 
-const render = () => {
-  foo()
+foo()
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+const render = async () => {
   for (let line of lines) {
-    setInterval(() => {
-      scene.add(line)
-    }, 250)
+    scene.add(line)
+    await wait(25)
   }
-  renderer.render(scene, camera)
+  
 }
 
 function animate() {
   requestAnimationFrame(animate)
-
   render()
+  renderer.render(scene, camera)
 }
 animate()
